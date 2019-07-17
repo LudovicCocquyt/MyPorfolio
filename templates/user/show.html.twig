@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminbase.html.twig' %}
 
 {% block title %}User{% endblock %}
 
@@ -66,5 +66,5 @@
 
     <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
 
-    {{ include('user/_delete_form.html.twig') }}
-{% endblock %}
+{#     {{ include('user/_delete_form.html.twig') }}
+ #}{% endblock %}

@@ -21,7 +21,7 @@ class HomeController extends AbstractController
 
     	return $this->render('home.html.twig',[
             'parcours' => $parcoursRepository->findAll(),
-            'projets' => $projetRepository->findAll(),
+            'projets' => $projetRepository->findBy(array(), array('id' =>'DESC')),
             'users' => $userRepository->findAll(),
         ]);
 	}

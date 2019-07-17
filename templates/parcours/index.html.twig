@@ -1,10 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminbase.html.twig' %}
 
 {% block title %}Parcours index{% endblock %}
 
 {% block body %}
     <h1>Parcours index</h1>
 
+    <a href="{{ path('parcours_new') }}">Create new</a>
     <table class="table">
         <thead>
             <tr>
@@ -41,5 +42,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('parcours_new') }}">Create new</a>
 {% endblock %}

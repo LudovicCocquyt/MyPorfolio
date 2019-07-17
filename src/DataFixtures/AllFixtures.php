@@ -21,7 +21,7 @@ class AllFixtures extends Fixture
      {
  //        $user = new User;
  //        $user->setemail('cocquyt.ludovic@gmail.com')
- //        	 ->setRoles(['ROLE_USER'])
+ //        	 ->setRoles(['ROLE_ADMIN'])
  //        	 ->setPassword($this->passwordEncoder->encodePassword($user,'ALSKDJ'))
  //        	 ->setNom('COCQUYT')
  //        	 ->setPrenom('Ludovic')
