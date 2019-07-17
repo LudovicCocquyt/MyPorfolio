@@ -16,6 +16,9 @@ class ProjetType extends AbstractType
             ->add('techno')
             ->add('description')
             ->add('photo')
+            ->add('photo2')
+            ->add('photo3')
+            ->add('lien')
         ;
     }
 

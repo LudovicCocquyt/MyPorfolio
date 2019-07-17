@@ -25,8 +25,8 @@
                 <td>{{ parcour.nom }}</td>
                 <td>{{ parcour.poste }}</td>
                 <td>{{ parcour.lieu }}</td>
-                <td>{{ parcour.dateStart ? parcour.dateStart|date('Y-m-d') : '' }}</td>
-                <td>{{ parcour.dateEnd ? parcour.dateEnd|date('Y-m-d') : '' }}</td>
+                <td>{{ parcour.dateStart }}</td>
+                <td>{{ parcour.dateEnd }}</td>
                 <td>{{ parcour.description }}</td>
                 <td>
                     <a href="{{ path('parcours_show', {'id': parcour.id}) }}">show</a>

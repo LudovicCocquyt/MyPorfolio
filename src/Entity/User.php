@@ -44,7 +44,7 @@ class User implements UserInterface
     private $prenom;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string")
      */
     private $age;
 
@@ -77,6 +77,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $photo;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $metier;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $techo;
 
     public function getId(): ?int
     {
@@ -180,12 +190,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getAge(): ?\DateTimeInterface
+    public function getAge(): ?string
     {
         return $this->age;
     }
 
-    public function setAge(\DateTimeInterface $age): self
+    public function setAge( string $age): self
     {
         $this->age = $age;
 
@@ -260,6 +270,30 @@ class User implements UserInterface
     public function setPhoto(string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getMetier(): ?string
+    {
+        return $this->metier;
+    }
+
+    public function setMetier(?string $metier): self
+    {
+        $this->metier = $metier;
+
+        return $this;
+    }
+
+    public function getTecho(): ?string
+    {
+        return $this->techo;
+    }
+
+    public function setTecho(?string $techo): self
+    {
+        $this->techo = $techo;
 
         return $this;
     }

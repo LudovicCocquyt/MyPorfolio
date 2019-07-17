@@ -32,12 +32,12 @@ class Parcours
     private $lieu;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $dateStart;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $dateEnd;
 
@@ -87,24 +87,24 @@ class Parcours
         return $this;
     }
 
-    public function getDateStart(): ?\DateTimeInterface
+    public function getDateStart(): ?string
     {
         return $this->dateStart;
     }
 
-    public function setDateStart(?\DateTimeInterface $dateStart): self
+    public function setDateStart(?string $dateStart): self
     {
         $this->dateStart = $dateStart;
 
         return $this;
     }
 
-    public function getDateEnd(): ?\DateTimeInterface
+    public function getDateEnd(): ?string
     {
         return $this->dateEnd;
     }
 
-    public function setDateEnd(?\DateTimeInterface $dateEnd): self
+    public function setDateEnd(?string $dateEnd): self
     {
         $this->dateEnd = $dateEnd;
 
