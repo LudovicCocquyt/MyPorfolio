@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<div style="background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);">
+<div style="padding-top:16px;">
 	<div class="container">
 	{% for user in users %}
 		<div class="row">
@@ -25,48 +25,45 @@
 		<h4>FORMATION</h4>
 		{% for parcour in parcours %}
 			{% if loop.index < 3 %}
-			<h5 style="text-align: center;">{{ parcour.nom }}</h5>
-			<p style="text-align: center;">Du {{ parcour.dateStart }} au {{ parcour.dateEnd }} {{ parcour.lieu }}</p>
+			<h5 class="offset-4">{{ parcour.nom }}</h5>
+			<p class="offset-4">Du {{ parcour.dateStart }} au {{ parcour.dateEnd }} {{ parcour.lieu }}</p>
 		{% endif %}
 		{% endfor %}
 		<hr>
 	</div>
+
+
 	<div class="container">
 	<h4>PROJET WEB</h4>
-	{% for projet in projets %}
-	<div class="mb-2 mt-5">
-		<div style="text-align: center;">
-			<h5 class="mt-5 pt-5" style="text-align: center;">{{ projet.nom }}</h5>
+		<div class="row">
+		{% for projet in projets %}
+			<div class="col-4">
+				<h5 class="mt-5">{{ projet.nom }}</h5>
+				<img data-toggle="modal" data-target="#exampleModal1{{ projet.id }}" src="{{ projet.photo }}" style=" height: 23em; width: 16em;">
+			</div>
+	<!-- Modal -->
+	<div class="modal fade col-12" id="exampleModal1{{ projet.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
 			<p style="text-align: center;">{{ projet.description }}</p>
 			<p style="text-align: center;">{{ projet.techno }}</p>
 			{% if projet.lien %}
-			<a href="{{ projet.lien }}" class="text-dark">Voir le site</a>
+			<a style="text-align: center;" href="{{ projet.lien }}">Voir le site</a>
 			{% endif %}
-		</div>
-		<div class="row pb-5 justify-content-center" data-toggle="modal" data-target="#exampleModal{{ projet.id }}">
-			<img src="{{ projet.photo }}" style=" height: 22em;">
-			<img class="ml-2 mr-2" src="{{ projet.photo2 }}" style=" height: 22em;">
-			<img src="{{ projet.photo3 }}" style=" height: 22em;">
-		</div>
-	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal{{ projet.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
+			{% if projet.photo %}
 	        <img src="{{ projet.photo }}" style=" height: 38em;">
-			<img src="{{ projet.photo2 }}" style=" height: 33em;">
-			<img src="{{ projet.photo3 }}" style=" height: 33em;">
-			</div>
+	        {% endif %}
+	        {% if projet.photo2 %}
+	        <img class="pt-3 pb-3" src="{{ projet.photo2 }}" style=" height: 33em;">
+	        {% endif %}
+	        {% if projet.photo3 %}
+	        <img src="{{ projet.photo3 }}" style=" height: 33em;">
+	        {% endif %}
 	      </div>
 	    </div>
 	  </div>
-	{% endfor %}
-	</div>
-</div>
+
+		{% endfor %}
+		</div>
+	</div>	
 {% endblock %}
