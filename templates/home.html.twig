@@ -2,24 +2,23 @@
 
 {% block body %}
 
-<div class="hero" style="
-padding-top:16px; padding-bottom:16px;">
+<div class="hero">
 	<div class="container">
 	{% for user in users %}
 		<div class="row">
 			<div class="offset-md-2 col-md-7 col-lg-8">
-				<h1 style="text-align: center;">{{ user.metier }}</h1>
-				<h4 style="text-align: center; font-weight:bold;">{{ user.techo }}</h4>
-				<p style="text-align: center; font-weight:bold;">{{ user.content }}</p>
-				<h4 class="offset-1 offset-md-2 offset-lg-4" style=" font-weight:bold;">{{ user.nom }} {{ user.prenom }}  {{ user.age }} ans</h4>
+				<h1 class="textFormat">{{ user.metier }}</h1>
+				<h4 class="textFormat bold">{{ user.techo }}</h4>
+				<p class="textFormat bold">{{ user.content }}</p>
+				<h4 class="offset-1 offset-md-2 offset-lg-4 bold">{{ user.nom }} {{ user.prenom }}  {{ user.age }} ans</h4>
 				<div class="row">
-					<p class="offset-3 offset-md-4 offset-lg-1" style=" font-weight:bold;"><i class="fas fa-home"></i> {{ user.ville }}</p>
-					<p class="offset-3 offset-md-4 offset-lg-1" style=" font-weight:bold;"> <i class="fas fa-envelope-open-text "></i> {{ user.email }}</p>
-					<p class="offset-3 offset-md-4 offset-lg-1" style=" font-weight:bold;"><i class="fas fa-phone"></i> {{ user.phone }}</p>
+					<p class="offset-3 offset-md-4 offset-lg-0 bold"><i class="fas fa-home"></i> {{ user.ville }}</p>
+					<p class="offset-3 offset-md-4 offset-lg-1 bold"> <i class="fas fa-envelope-open-text "></i> {{ user.email }}</p>
+					<p class="offset-3 offset-md-4 offset-lg-1 bold"><i class="fas fa-phone"></i> {{ user.phone }}</p>
 				</div>
 			</div>
 			<div class="col-md-3 col-lg-2">
-				<a class="offset-3 offset-md-0" href="{{ path('app_login')}}"><img src="{{ user.photo }}" style=" height: 14em; padding: 1em;"></a>
+				<a class="offset-3 offset-md-0" href="{{ path('app_login')}}"><img class="photo" src="{{ user.photo }}"></a>
 			</div>
 		</div>
 	{% endfor %}
@@ -30,7 +29,7 @@ padding-top:16px; padding-bottom:16px;">
 		<h3>FORMATION</h3>
 		{% for parcour in parcours %}
 			{% if loop.index < 3 %}
-			<h5 style=" font-weight:bold;" class="offset-4">{{ parcour.nom }}</h5>
+			<h5 class="bold offset-4">{{ parcour.nom }}</h5>
 			<p class="offset-4">Du {{ parcour.dateStart }} au {{ parcour.dateEnd }} {{ parcour.lieu }}</p>
 		{% endif %}
 		{% endfor %}
@@ -43,8 +42,8 @@ padding-top:16px; padding-bottom:16px;">
 		<div class="row">
 		{% for projet in projets %}
 			<div class="col-12 col-md-5 col-lg-3 offset-1 offset-lg-0">
-				<h5 style=" font-weight:bold;" class="mt-5">{{ projet.nom }}</h5>
-				<img data-toggle="modal" data-target="#exampleModal1{{ projet.id }}" src="{{ projet.photo }}" style=" height: 20em; width: 16em;">
+				<h5 class="bold mt-5">{{ projet.nom }}</h5>
+				<img class="card" data-toggle="modal" data-target="#exampleModal1{{ projet.id }}" src="{{ projet.photo }}">
 			</div>
 
 			<!-- Modal -->
@@ -52,16 +51,16 @@ padding-top:16px; padding-bottom:16px;">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 			    	<div class="card-header">
-						<p style="text-align: center; font-weight:bold;">{{ projet.description }}</p>
+						<p class="bold textFormat">{{ projet.description }}</p>
 		  			</div>
 		  			<div class="card-body">
-						<p style="text-align: center;">{{ projet.techno }}</p>
+						<p class="textFormat">{{ projet.techno }}</p>
 				    </div>
 						{% if projet.lien %}
-						<a style="text-align: center;" href="{{ projet.lien }}">Voir le site</a>
+						<a class="textFormat" href="{{ projet.lien }}">Voir le site</a>
 						{% endif %}
 						{% if projet.photo %}
-				        <img src="{{ projet.photo }}" style=" height: 38em;">
+				        <img src="{{ projet.photo }}" class="modalCard">
 				        {% endif %}
 				        {% if projet.photo2 %}
 				        <img class="pt-3 pb-3" src="{{ projet.photo2 }}" style=" height: 33em;">
